@@ -92,17 +92,18 @@ After domain-level analysis is complete, the project can generate a narrative su
 ```text
 awh-qol-nlp/
 ├── app/
+|   └── config/
+|       └── keywords.json
 │   ├── __init__.py
 │   ├── bow_data.py
-│   ├── keyword_counts.py
 │   ├── fuzzy_flags.py
-│   ├── summary_report.py
+│   ├── fuzzy_plot.py
+│   ├── mental_health_member_function.py
+│   ├── patient_report.py
 │   ├── plot_full_mental_health_membership.py
 │   ├── plot_mental_health_function.py
-│   ├── patient_report.py
-│   └── mental_health_member_function.py
-├── config/
-│   └── keywords.json
+│   ├── keyword_counts.py
+│   └── summary_report.py
 ├── data/
 │   └── real/
 │       ├── S001.json
