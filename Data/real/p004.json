@@ -1,0 +1,157 @@
+{
+  "patient_id": "P004",
+
+  "demographics": {
+    "name": "Mary Simpson",
+    "date_of_birth": "1964-12-01",
+    "age": 60,
+    "sex": "Female",
+
+    "weight": {
+      "current_kg": 100,
+      "feels_overweight": true,
+      "tried_to_lose_weight": true,
+      "lowest_adult_weight_kg": 82,
+      "highest_adult_weight_kg": 110,
+      "weight_trend": "staying the same"
+    },
+
+    "occupation": "Childcare worker",
+    "activity_level": "Low",
+
+    "activities": {
+      "currently_working": true,
+      "work_type": "Pain from hernia",
+      "active_30min_sessions_per_week": 0,
+      "could_walk_mile": "Probably",
+      "walk_limit_reason": "Pain",
+      "exercise_regularly": false,
+      "exercise_description": null,
+      "exercise_for_health_thoughts": "Have tried but difficult due to pain",
+      "sitting_or_lying_hours_per_week": 21,
+      "mobility_aid": null
+    },
+
+    "smoking": {
+      "status": false,
+      "cigarettes_per_day": null,
+      "duration_years": null,
+      "would_like_to_give_up": null,
+      "former_smoker": true,
+      "quit_year": null,
+      "quit_reason": null,
+      "previous_cigarettes_per_day": 10
+    }
+  },
+
+  "clinical": {
+    "hernia_overview": {
+      "causes_problems": true,
+      "painful": true,
+      "vomiting_episodes": "Occasionally, 2 episodes"
+    },
+
+    "hernia_repairs": [
+      {
+        "sequence": 1,
+        "year": 2015,
+        "hospital": "Middlesbrough Huddersfield",
+        "surgeon": null,
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": "2 months"
+      },
+      {
+        "sequence": 2,
+        "year": 2021,
+        "hospital": "NHS, York and Scarborough Teaching Hospitals NHS Foundation Trust, Middlesbrough Huddersfield",
+        "surgeon": null,
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": "4 weeks"
+      }
+    ],
+    "hernia_history": {
+      "previous_repairs": 2
+    },
+    "previous_operations": [
+      {
+        "procedure": "Appendicectomy",
+        "hospital": "Manchester",
+        "surgeon": null,
+        "year": 1984
+      },
+      {
+        "procedure": "Myomectomy",
+        "hospital": "Manchester",
+        "surgeon": null,
+        "year": 1989
+      },
+      {
+        "procedure": "Caesarian Section",
+        "hospital": "Leeds",
+        "surgeon": null,
+        "year": 1992
+      },
+      {
+        "procedure": "Caesarian Section",
+        "hospital": "Leeds",
+        "surgeon": null,
+        "year": 1994
+      },
+      {
+        "procedure": "Caesarian Section",
+        "hospital": "Leeds",
+        "surgeon": null,
+        "year": 1997
+      }
+    ],
+
+    "anaesthetic_history": {
+      "problems_self": true,
+      "details_self": null,
+      "problems_relatives": false,
+      "details_relatives": null
+    },
+
+    "diabetes_details": {
+      "has_diabetes": true,
+      "treatment": "Metformin"
+    },
+
+    "immunity": {
+      "immunosuppressed": false,
+      "steroid_use": true,
+      "cancer_history": {
+        "status": true,
+        "treatment": "Chemotherapy/Radiotherapy",
+        "year": null
+      }
+    },
+
+    "mobility_aid": null,
+    "sleep_apnoea": true,
+    "cpap": true,
+    "wound_infection_history": true,
+    "infection_year": null
+  },
+  
+  "quality_of_life": {
+    "free_text": {
+      "symptoms": "Pain limits walking and daily activities; requires sitting and massaging abdomen.",
+      "body_image": "Feels self-conscious, wears baggy clothes, long time to get ready, avoids public exposure.",
+      "mental_health": "Feels anxious and socially withdrawn; copes by staying in, sometimes overeats.",
+      "interpersonal_relationships": "Social interactions reduced; intimate life affected; partner understanding but patient distressed.",
+      "employment": "Unable to work normally due to pain; financial impact from hospital visits."
+    },
+    "labels": {
+      "symptoms": 1,
+      "body_image": 1,
+      "mental_health": 1,
+      "interpersonal_relationships": 1,
+      "employment": 1
+    }
+  }
+}

@@ -1,0 +1,155 @@
+{
+  "patient_id": "P002",
+
+  "demographics": {
+    "name": "James Brock",
+    "date_of_birth": "1948-07-04",
+    "age": 76,
+    "sex": "Male",
+
+    "weight": {
+      "current_kg": 124,
+      "feels_overweight": true,
+      "tried_to_lose_weight": null,
+      "lowest_adult_weight_kg": 61,
+      "highest_adult_weight_kg": 125,
+      "weight_trend": "going up"
+    },
+
+    "occupation": null,
+    "activity_level": null,
+
+    "activities": {
+      "currently_working": false,
+      "work_type": null,
+      "active_30min_sessions_per_week": 0,
+      "could_walk_mile": false,
+      "walk_limit_reason": "Never done it",
+      "exercise_regularly": false,
+      "exercise_description": null,
+      "exercise_for_health_thoughts": true,
+      "sitting_or_lying_hours_per_week": "most of the time",
+      "mobility_aid": true
+    },
+
+    "smoking": {
+      "status": "Current smoker",
+      "cigarettes_per_day": null,
+      "duration_years": null,
+      "would_like_to_give_up": null,
+      "former_smoker": true,
+      "quit_year": 2020,
+      "quit_reason": "Got cancer",
+      "previous_cigarettes_per_day": 15
+    }
+  },
+
+  "clinical": {
+    "hernia_overview": {
+      "causes_problems": true,
+      "painful": true,
+      "vomiting_episodes": 2
+    },
+
+    "hernia_repairs": [
+      {
+        "sequence": 1,
+        "year": 2015,
+        "hospital": "Ritt",
+        "surgeon": "Millando",
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": null
+      },
+      {
+        "sequence": 2,
+        "year": 2016,
+        "hospital": "Scarborough",
+        "surgeon": "Mr Whyte",
+        "laparoscopic": true,
+        "mesh_used": false,
+        "wound_breakdown": true,
+        "wound_healing_time": null
+      },
+      {
+        "sequence": 3,
+        "year": 2019,
+        "hospital": "York",
+        "surgeon": "Mr Blaike",
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": "6 months"
+      },
+      {
+        "sequence": 4,
+        "year": 2019,
+        "hospital": "York",
+        "surgeon": "Mr Simpley",
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": null
+      }
+    ],
+
+    "hernia_history": {
+      "previous_repairs": 4
+    },
+
+    "previous_operations": [
+      {
+        "procedure": "Nephrectomy for cancer",
+        "hospital": "York Hospital",
+        "surgeon": "Mr Kass",
+        "year": 2020
+      }
+    ],
+
+    "anaesthetic_history": {
+      "problems_self": false,
+      "details_self": null,
+      "problems_relatives": false,
+      "details_relatives": null
+    },
+
+    "diabetes_details": {
+      "has_diabetes": false,
+      "treatment": null
+    },
+
+    "immunity": {
+      "immunosuppressed": false,
+      "steroid_use": false,
+      "cancer_history": {
+        "status": true,
+        "treatment": "chemotherapy",
+        "year": null
+      }
+    },
+
+    "mobility_aid": true,
+    "sleep_apnoea": true,
+    "cpap": null,
+    "wound_infection_history": true,
+    "infection_year": 2019
+  },
+
+  "quality_of_life": {
+    "free_text": {
+      "symptoms": "Activity restricted; avoids swimming; moves slowly; copes with pain by walking slowly on uneven surfaces or stairs",
+      "body_image": "Feels self-conscious; thinks hernia looks ugly; wears loose clothes to disguise",
+      "mental_health": "Feels depressed; little therapy helps minimally; not coping well",
+      "interpersonal_relationships": "Avoids social contact; intimate relationship negatively affected; frequent conflicts",
+      "employment": "Stopped working due to hernia; financially affected"
+    },
+    "labels": {
+      "symptoms": 1,
+      "body_image": 1,
+      "mental_health": 1,
+      "interpersonal_relationships": 1,
+      "employment": 1
+    }
+  }
+}

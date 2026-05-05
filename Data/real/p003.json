@@ -1,0 +1,114 @@
+{
+  "patient_id": "P003",
+
+  "demographics": {
+    "name": "Jon Smith",
+    "date_of_birth": "1980-02-07",
+    "age": 46,
+    "sex": "Male",
+
+    "weight": {
+      "current_kg": 102,
+      "feels_overweight": true,
+      "tried_to_lose_weight": null,
+      "lowest_adult_weight_kg": 62,
+      "highest_adult_weight_kg": 102,
+      "weight_trend": "staying the same"
+    },
+
+    "occupation": "Barber Shop Owner",
+    "activity_level": null,
+
+    "activities": {
+      "currently_working": true,
+      "work_type": "Barber",
+      "active_30min_sessions_per_week": 8,
+      "could_walk_mile": false,
+      "walk_limit_reason": "Never walked a mile; feels discomfort and limitations",
+      "exercise_regularly": false,
+      "exercise_description": null,
+      "exercise_for_health_thoughts": true,
+      "sitting_or_lying_hours_per_week": "generally active",
+      "mobility_aid": null
+    },
+
+    "smoking": {
+      "status": "Former smoker",
+      "cigarettes_per_day": "10-15",
+      "duration_years": 30,
+      "would_like_to_give_up": null,
+      "former_smoker": true,
+      "quit_year": 30,
+      "quit_reason": null,
+      "previous_cigarettes_per_day": 10
+    }
+  },
+
+  "clinical": {
+    "hernia_overview": {
+      "causes_problems": true,
+      "painful": true,
+      "vomiting_episodes": "Constantly"
+    },
+
+    "hernia_repairs": [],
+    
+    "hernia_history": {
+      "previous_repairs": 0
+    },
+
+    "previous_operations": [
+      {
+        "procedure": "Subtotal Cholecystectomy",
+        "hospital": "York Hospital",
+        "surgeon": null,
+        "year": 2010
+      }
+    ],
+
+    "anaesthetic_history": {
+      "problems_self": false,
+      "details_self": null,
+      "problems_relatives": false,
+      "details_relatives": null
+    },
+
+    "diabetes_details": {
+      "has_diabetes": false,
+      "treatment": null
+    },
+
+    "immunity": {
+      "immunosuppressed": false,
+      "steroid_use": false,
+      "cancer_history": {
+        "status": null,
+        "treatment": null,
+        "year": null
+      }
+    },
+
+    "mobility_aid": null,
+    "sleep_apnoea": true,
+    "cpap": true,
+    "wound_infection_history": true,
+    "infection_year": null
+  },
+
+  "quality_of_life": {
+    "free_text": {
+      "symptoms": "Activity restricted; adapts movements; moves carefully; copes with pain using corset and careful movement",
+      "body_image": "Feels self-conscious; wears loose clothing; concerned about visibility of hernia/stoma",
+      "mental_health": "Mentally affected; low mood; tries to cope but still distressed",
+      "interpersonal_relationships": "Social contact reduced; intimate relationship negatively affected",
+      "employment": "Work affected; had to change working style; financial impact present"
+    },
+    "labels": {
+      "symptoms": 1,
+      "body_image": 1,
+      "mental_health": 1,
+      "interpersonal_relationships": 1,
+      "employment": 1
+    }
+  }
+}

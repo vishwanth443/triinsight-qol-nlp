@@ -1,0 +1,147 @@
+{
+  "patient_id": "P001",
+
+  "demographics": {
+    "name": "Jackie Barnes",
+    "date_of_birth": "1965-08-02",
+    "age": null,
+    "sex": "Female",
+
+    "weight": {
+      "current_kg": 100,
+      "feels_overweight": true,
+      "tried_to_lose_weight": true,
+      "lowest_adult_weight_kg": 62,
+      "highest_adult_weight_kg": 100,
+      "weight_trend": "staying the same"
+    },
+
+    "occupation": "teacher/dancer",
+    "activity_level": null,
+
+    "activities": {
+      "currently_working": true,
+      "work_type": "teacher/dancer",
+      "active_30min_sessions_per_week": "5-10",
+      "could_walk_mile": true,
+      "walk_limit_reason": null,
+      "exercise_regularly": true,
+      "exercise_description": "part of classes",
+      "exercise_for_health_thoughts": true,
+      "sitting_or_lying_hours_per_week": "very little",
+      "mobility_aid": true
+    },
+
+    "smoking": {
+      "status": true,
+      "cigarettes_per_day": 5,
+      "duration_years": 30,
+      "would_like_to_give_up": null,
+      "former_smoker": null,
+      "quit_year": null,
+      "quit_reason": null,
+      "previous_cigarettes_per_day": null
+    }
+  },
+
+  "clinical": {
+    "hernia_overview": {
+      "causes_problems": null,
+      "painful": null,
+      "vomiting_episodes": true
+    },
+
+    "hernia_repairs": [
+      {
+        "sequence": 1,
+        "year": 2907,
+        "hospital": "Maryland Hospital",
+        "surgeon": "Makettereng",
+        "laparoscopic": true,
+        "mesh_used": null,
+        "wound_breakdown": true,
+        "wound_healing_time": 2
+      },
+      {
+        "sequence": 2,
+        "year": 2018,
+        "hospital": "NHS York and Scarborough Teaching Hospitals",
+        "surgeon": "Huill Poyl Ingin",
+        "laparoscopic": true,
+        "mesh_used": true,
+        "wound_breakdown": true,
+        "wound_healing_time": 4
+      }
+    ],
+
+    "hernia_history": {
+      "previous_repairs": 2
+    },
+
+    "previous_operations": [
+      {
+        "procedure": "Lapurosupe cholecystalang",
+        "hospital": "Maryland Hospital",
+        "surgeon": "Maplan, Hoghet",
+        "year": 2005
+      },
+      {
+        "procedure": "lapurosxfer incisiont hemen Asfen",
+        "hospital": "Hull Royid",
+        "surgeon": "Infary",
+        "year": 2007
+      },
+      {
+        "procedure": "Oen Rewnit mcised hernia repair",
+        "hospital": "Hull Royid",
+        "surgeon": "Infary",
+        "year": 2015
+      }
+    ],
+
+    "anaesthetic_history": {
+      "problems_self": null,
+      "details_self": null,
+      "problems_relatives": null,
+      "details_relatives": null
+    },
+
+    "diabetes_details": {
+      "has_diabetes": false,
+      "treatment": null
+    },
+
+    "immunity": {
+      "immunosuppressed": false,
+      "steroid_use": false,
+      "cancer_history": {
+        "status": null,
+        "treatment": null,
+        "year": null
+      }
+    },
+
+    "mobility_aid": true,
+    "sleep_apnoea": null,
+    "cpap": null,
+    "wound_infection_history": null,
+    "infection_year": null
+  },
+
+  "quality_of_life": {
+    "free_text": {
+      "symptoms": "It affects daily activities slightly; uses abdominal binder to manage movement and pain.",
+      "body_image": "Feels self-conscious; wears corset to hide hernia; uncomfortable with visibility in public.",
+      "mental_health": "Has experienced mood reduction; uses coping strategies like dancing lessons and facing the situation.",
+      "interpersonal_relationships": "Does not let hernia affect social life much; intimacy impacted slightly due to physical issues.",
+      "employment": "Teaches dance; hernia has minimal effect on work; manages financially."
+    },
+    "labels": {
+      "symptoms": 1,
+      "body_image": 1,
+      "mental_health": 1,
+      "interpersonal_relationships": 1,
+      "employment": 1
+    }
+  }
+}
