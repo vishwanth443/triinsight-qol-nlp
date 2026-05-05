@@ -2,15 +2,15 @@
 
 ## Overview
 
-This project focuses on **Natural Language Processing (NLP) for Quality of Life (QoL) patient narrative analysis**. It processes patient free-text responses and analyses how abdominal wall hernia affects different areas of daily life using a Bag of Words approach, keyword matching, and fuzzy logic-based severity scoring.[1][2][3][4]
+Triinsight is a group project focused on **NLP for QoL Patient’s narrative analysis**. The project processes patient free-text responses and converts them into structured outputs that help assess the impact of abdominal wall hernia on quality of life across multiple domains using Bag of Words processing, fuzzy logic severity scoring, summary generation, and graph plotting for mental health analysis.[file:1][file:2][file:3][file:4]
 
-The system is designed to examine patient narratives across five Quality of Life domains: symptoms, body image, mental health, interpersonal relationships, and employment. Each domain is analysed separately so the output can show domain-level impact, severity, and flag status.[1][5][4]
+The system works on patient narrative text stored in JSON format and analyses five Quality of Life domains: symptoms, body image, mental health, interpersonal relationships, and employment. These domains are explicitly defined in the project code and supporting documentation.[file:1][file:9]
 
 ## Project Aim
 
 **Project Aim:** NLP for QoL Patient’s narrative analysis.
 
-The goal of the project is to convert unstructured patient narrative text into structured indicators that help identify how strongly different QoL domains are affected. The project uses text processing to detect domain-relevant expressions, then applies fuzzy logic to transform keyword evidence into severity levels and clinical-style flags.[2][3][5][4]
+The purpose of the project is to analyse patient narratives and transform unstructured text into interpretable outputs such as severity values, domain-based concern levels, report text, and visual mental-health membership graphs. The project uses NLP-based text representation and fuzzy inference to make domain-level analysis easier to read and interpret.[file:1][file:2][file:3]
 
 ## Team
 
@@ -20,80 +20,109 @@ The goal of the project is to convert unstructured patient narrative text into s
 
 | Name | Contribution |
 |---|---|
-| Deepak Ravi | NLP pipeline integration, patient-level execution flow, command-line run structure, and coordination of end-to-end local testing. |
-| Vishwanth Paka | Bag of Words processing, keyword-based domain counting, JSON input handling, and domain text preparation. |
-| Panideep Kumar Reddy Kancham Reddy | Fuzzy logic severity mapping, flag generation, reporting logic, and summary report generation. |
+| Deepak Ravi | End-to-end pipeline integration, execution workflow, mental health analysis support, and local testing of patient-level runs. |
+| Vishwanth Paka | Bag of Words text processing, JSON data handling, patient text preparation, and command-line execution support. |
+| Panideep Kumar Reddy Kancham Reddy | Fuzzy logic modelling, severity and flag generation, summary report generation, and project documentation structure. |
 
-## What the Project Does
+## Core Working Modules
 
-The project reads patient JSON files containing QoL free-text responses. It extracts narrative text for the five predefined domains and processes them through a structured analysis pipeline.[1][3][4]
+The current project contains the following main working modules.[file:1][file:2][file:3][file:4][file:5]
 
-The current workflow supports:
+### `app/bow_data.py`
 
-- Loading patient JSON files from local storage.[1][3]
-- Extracting QoL free-text content from domain-specific fields.[1][2][3]
-- Building a Bag of Words representation of text using `CountVectorizer` from scikit-learn.[1]
-- Counting domain-specific keywords using a configurable keyword dictionary stored in `config/keywords.json`.[2][6][5]
-- Applying fuzzy membership functions to convert keyword hits into severity scores and colour-style flags.[2]
-- Producing a patient-level summary report that describes impact across symptoms, body image, mental health, relationships, and employment.[7][3]
+This module loads patient JSON files, reads the text from the five QoL domains, combines the text where needed, and applies `CountVectorizer` from scikit-learn to build a Bag of Words representation and vocabulary output.[file:1]
 
-## QoL Domains Analysed
+### `app/fuzzy_flags.py`
 
-The analysis is organised around five QoL domains defined in the project files.[1][4]
+This module performs the fuzzy-logic-based domain analysis. It calculates low, medium, and high membership values from the domain evidence score, converts them into a severity score, and maps that score into a flag category.[file:2]
 
-| Domain | Purpose |
+### `app/summary_report.py`
+
+This module generates a narrative summary report from the analysed patient results. It builds domain-level summary text, overall assessment text, and recommendation text based on severity values.[file:3]
+
+### `app/patient_report.py`
+
+This is the main combined execution file for a patient-level run. It calls the fuzzy analysis module, prints detailed per-domain results, and then prints the narrative summary report.[file:4]
+
+### `app/mental_health_member_function.py`
+
+This module is used for focused mental-health-only analysis. It processes mental health text, computes a Bag of Words score, applies fuzzy severity logic, and outputs a mental health state. It is also the base module used for graph plotting support in the mental health graph files you created locally.[file:4]
+
+## QoL Domains Used in the Project
+
+The project analyses the following five domains.[file:1][file:9]
+
+| Domain | Description |
 |---|---|
-| Symptoms | Measures physical effects such as pain, restricted movement, discomfort, and daily activity limitation.[5][4] |
-| Body image | Captures self-consciousness, embarrassment, shame, concealment, and appearance-related concerns.[5][4] |
-| Mental health | Captures low mood, anxiety, distress, coping difficulty, and emotionally negative reactions.[5][4] |
-| Interpersonal relationships | Captures social withdrawal, family and partner impact, awkwardness, intimacy issues, and relationship strain.[5][4] |
-| Employment | Captures work limitations, role changes, financial pressure, income issues, and reduced ability to work.[5][4] |
+| Symptoms | Physical pain, discomfort, movement restriction, and limitations in day-to-day activities.[file:9] |
+| Body image | Self-consciousness, embarrassment, appearance-related concerns, and concealment behaviour.[file:9] |
+| Mental health | Low mood, anxiety, emotional distress, coping difficulty, and psychological impact.[file:9] |
+| Interpersonal relationships | Social withdrawal, family or partner effects, intimacy issues, and relationship strain.[file:9] |
+| Employment | Work difficulty, role limitation, loss of ability to work, and financial impact.[file:9] |
 
-## How the System Works
+## How the Project Works
 
-### 1. Input structure
+### Step 1 — Input loading
 
-The project expects patient data in JSON format. The main analysis files read patient narratives from the `quality_of_life.free_text` section, where each QoL domain is stored as a separate text field.[1][2][3]
+The project loads patient JSON files from local storage. The text is read from the `quality_of_life.free_text` section, where each domain is stored separately.[file:1][file:2][file:4]
 
-The expected domain keys are:
+### Step 2 — Text processing
 
-- `symptoms` [1]
-- `body_image` [1]
-- `mental_health` [1]
-- `interpersonal_relationships` [1]
-- `employment` [1]
+The project applies a Bag of Words approach using `CountVectorizer` from scikit-learn. This converts the patient narrative into token-based text features that can be analysed computationally.[file:1]
 
-### 2. Bag of Words processing
+### Step 3 — Severity modelling
 
-The project uses `CountVectorizer` from scikit-learn to transform patient text into tokenised vocabulary features. This forms the NLP foundation for domain-level text processing and vocabulary inspection.[1]
+The project applies fuzzy membership functions (`mu_low`, `mu_medium`, `mu_high`) to transform the domain evidence score into a severity value. This severity is then mapped to a flag category such as blue, green, amber, red, or dark red.[file:2]
 
-### 3. Keyword-based domain evidence
+### Step 4 — Report generation
 
-A configurable keyword list is stored in `config/keywords.json`, with separate keywords for each QoL domain. The keyword counting step checks whether domain-relevant expressions appear in the patient’s narrative text and computes keyword hit counts for each domain.[6][5]
+After severity is calculated for the patient domains, the project produces a readable patient summary report. This report explains the likely impact of the condition across the analysed domains and gives an overall assessment.[file:3][file:4]
 
-### 4. Fuzzy logic severity scoring
+### Step 5 — Graph plotting
 
-The project applies fuzzy membership functions to keyword hit counts. Three membership levels are used — low, medium, and high — and these are combined through a weighted severity function to generate a severity score between 0 and 1.[2]
+The mental health part of the project can also be visualised through plotting scripts built on top of the mental health analysis module. These graphs are used to visualise the complete mental health membership functions and patient-specific mental health positioning on the membership graph.
 
-The severity score is then mapped to a flag category:
+## Architecture
 
-- `blue` for very low concern.[2]
-- `green` for low concern.[2]
-- `amber` for medium concern.[2]
-- `red` for high concern.[2]
-- `dark_red` for very high concern.[2]
+The overall project architecture can be represented as follows based on the current code structure and execution flow.[file:1][file:2][file:3][file:4]
 
-### 5. Report generation
-
-After domain-level analysis is complete, the project can generate a narrative summary report. The report combines severity values across domains and produces an overall assessment plus a follow-up recommendation statement.[7][3]
+```text
+                    +----------------------+
+                    |   Patient JSON File  |
+                    +----------+-----------+
+                               |
+                               v
+                    +----------------------+
+                    |   Text Extraction    |
+                    | quality_of_life text |
+                    +----------+-----------+
+                               |
+                               v
+                    +----------------------+
+                    |  Bag of Words Layer  |
+                    |  CountVectorizer     |
+                    +----------+-----------+
+                               |
+                 +-------------+-------------+
+                 |                           |
+                 v                           v
+      +----------------------+     +----------------------+
+      | Fuzzy Logic Analysis |     | Mental Health Module |
+      | severity + flags     |     | focused MH analysis  |
+      +----------+-----------+     +----------+-----------+
+                 |                           |
+                 v                           v
+      +----------------------+     +----------------------+
+      | Summary Report       |     | Plotting / Graphs    |
+      | patient report text  |     | membership graphs    |
+      +----------------------+     +----------------------+
+```
 
 ## Project Structure
 
 ```text
 awh-qol-nlp/
 ├── app/
-|   └── config/
-|       └── keywords.json
 │   ├── __init__.py
 │   ├── bow_data.py
 │   ├── fuzzy_flags.py
@@ -102,69 +131,43 @@ awh-qol-nlp/
 │   ├── patient_report.py
 │   ├── plot_full_mental_health_membership.py
 │   ├── plot_mental_health_function.py
-│   ├── keyword_counts.py
 │   └── summary_report.py
 ├── data/
-│   └── real/
+│   ├── real/
+│   |   ├── p001.json
+│   |   ├── p002.json
+│   |   └── ...
+|   └── synthetic/
 │       ├── S001.json
-│       ├── p001.json
-│       └── ...
+│       ├── S002.json
+|       └── ...
 └── qol_domains.md
 ```
 
-This structure matches the project code layout, where Python modules are imported through the `app` package and keyword configuration is read from `config/keywords.json`.[3][2][7][6]
-
-## Main Python Files
-
-### `app/bow_data.py`
-
-This file defines the five core QoL domains, loads patient JSON files, combines domain text, and builds a Bag of Words vocabulary using `CountVectorizer`.[1]
-
-### `app/keyword_counts.py`
-
-This file loads the keyword dictionary and counts keyword hits within each domain. It is useful for checking how much domain-specific evidence exists in a patient narrative.[6][5]
-
-### `app/fuzzy_flags.py`
-
-This file applies fuzzy membership functions to keyword hit counts and generates per-domain severity values, flags, and binary labels.[2]
-
-### `app/summary_report.py`
-
-This file produces a human-readable textual report based on the domain-level results. It includes domain summaries, an overall assessment, and a referral-style recommendation.[7]
-
-### `app/patient_report.py`
-
-This file is the main patient-level demo runner. It combines fuzzy domain analysis with summary report generation and prints detailed results plus the final narrative report.[3]
-
-### `app/mental_health_member_function.py`
-
-This file is used for focused mental-health-only analysis and can be extended with plotting scripts for visualising the mental health membership function and related outputs. [3]
+The plotting files are included here because they are part of the working local version you have been building around the mental health analysis flow.
 
 ## Requirements
 
-The uploaded code directly requires the following verified dependency:
+The verified dependency used directly in the uploaded code is:
 
-- Python 3.9 or later is recommended because the project uses modern Python syntax such as `list[str]` type annotations.[6]
-- `scikit-learn` is required for the Bag of Words implementation using `CountVectorizer`.[1]
+- Python 3.9 or later is recommended.[file:5]
+- `scikit-learn` for `CountVectorizer` and Bag of Words processing.[file:1]
 
-Standard library modules used in the project include:
+For graph plotting in the local plotting files, install:
 
-- `json` [1][2][6]
-- `pathlib` [1][2][7][3][6]
-- `collections` [6]
+- `matplotlib`
+- `numpy`
 
-If plotting files are included locally, `matplotlib` and `numpy` may also be required for graph generation. This depends on whether those plotting scripts are part of the local project version.
+## Installation
 
-## Installation and Setup
-
-### 1. Clone the repository
+### Clone the repository
 
 ```bash
 git clone <your-repository-url>
 cd awh-qol-nlp
 ```
 
-### 2. Create a virtual environment
+### Create and activate a virtual environment
 
 **Windows Command Prompt**
 
@@ -180,62 +183,46 @@ py -3 -m venv .venv
 .venv\Scripts\Activate.ps1
 ```
 
-### 3. Install required packages
+### Install dependencies
 
 ```bash
 python -m pip install --upgrade pip
-pip install scikit-learn
+pip install scikit-learn numpy matplotlib
 ```
 
-If graph plotting files are present in the local project version, install:
+## How to Run
 
-```bash
-pip install matplotlib numpy
-```
+Run commands from the root project folder.
 
-## How to Run the Project
-
-Run all commands from the project root directory so that relative paths such as `config/keywords.json` work correctly.[2][7][3][6]
-
-### Main demo run
-
-The main end-to-end demo run is:
+### Main patient run
 
 ```bash
 python -m app.patient_report data/real/S001.json
 ```
 
-This runs the full domain analysis, prints domain results, and generates the narrative patient summary report.[3]
+This runs the full patient-level analysis and prints domain severities and the generated report text.[file:4]
 
-### Run with another patient JSON file
+### Run another patient file
 
 ```bash
 python -m app.patient_report data/real/p001.json
 ```
 
-### Run Bag of Words vocabulary inspection
+### Run Bag of Words vocabulary analysis
 
 ```bash
 python -m app.bow_data
 ```
 
-This loads available patient files from `data/real/`, builds the text corpus, and prints vocabulary information.[1]
+This prints the patient IDs, vocabulary size, and sample words from the Bag of Words model.[file:1]
 
-### Run keyword counting only
-
-```bash
-python -m app.keyword_counts data/real/p001.json
-```
-
-This prints per-domain keyword hit counts and overall keyword coverage across the patient text.[6]
-
-### Run fuzzy severity and flags only
+### Run fuzzy logic analysis only
 
 ```bash
 python -m app.fuzzy_flags data/real/p001.json
 ```
 
-This prints domain-level fuzzy severity values, flags, keyword hits, and labels.[2]
+This prints domain-level severity values, flag categories, and labels.[file:2]
 
 ### Run summary report only
 
@@ -243,19 +230,33 @@ This prints domain-level fuzzy severity values, flags, keyword hits, and labels.
 python -m app.summary_report data/real/p001.json
 ```
 
-This generates the narrative summary report without the full detailed patient-report wrapper.[7]
+This prints the narrative summary report only.[file:3]
 
-### Run mental-health-only module
+### Run mental-health-only analysis
 
 ```bash
 python -m app.mental_health_member_function data/real/S001.json
 ```
 
-If the local mental health file supports indexed dataset input, it can also be run with a second numeric argument for patient selection in list-based JSON files.
+### Run full mental health membership graph
+
+```bash
+python -m app.plot_full_mental_health_membership
+```
+
+This displays the complete mental health membership function graph.
+
+### Run patient-specific mental health graph
+
+```bash
+python -m app.plot_mental_health_function data/real/S001.json
+```
+
+This displays the patient position on the mental health membership graph.
 
 ## Expected Input Format
 
-The patient JSON format should include:
+The expected patient JSON structure for the main patient-level modules is:
 
 ```json
 {
@@ -267,49 +268,42 @@ The patient JSON format should include:
       "mental_health": "...",
       "interpersonal_relationships": "...",
       "employment": "..."
-    },
-    "labels": {
-      "symptoms": 0,
-      "body_image": 0,
-      "mental_health": 0,
-      "interpersonal_relationships": 0,
-      "employment": 0
     }
   }
 }
 ```
 
-The analysis modules primarily depend on `patient_id` and `quality_of_life.free_text`. Label fields may exist for reference, but the fuzzy scoring modules derive their own outputs from text and keyword evidence.[2][3][8][9]
+This structure matches how the uploaded modules load and analyse patient narratives.[file:1][file:2][file:4]
 
 ## Output Produced
 
-Depending on the file being run, the project can produce:
+The project can produce the following outputs depending on which module is run:
 
-- Domain-level keyword hit counts.[6]
-- Fuzzy severity values for each domain.[2]
-- Flag categories such as blue, green, amber, red, and dark red.[2]
-- Binary labels derived from severity thresholds.[2]
-- Human-readable summary report text.[7][3]
-- Vocabulary inspection from Bag of Words processing.[1]
+- Bag of Words vocabulary output.[file:1]
+- Domain-level severity values.[file:2]
+- Fuzzy flag categories.[file:2]
+- Mental health state output from the mental health module.
+- Narrative patient summary report text.[file:3][file:4]
+- Full membership graphs and patient-level mental health plots through the plotting modules.
 
-## Example Analysis Flow
+## End-to-End Flow
 
-A typical project run follows this sequence:
+A typical project run follows this order:
 
-1. Load patient JSON data.[1][3]
-2. Read free-text narratives for the five QoL domains.[1][2]
-3. Count domain-related keywords using the configured dictionary.[6][5]
-4. Convert keyword hit counts into fuzzy severity scores.[2]
-5. Map severity scores into coloured flags.[2]
-6. Generate a domain summary and an overall textual report.[7][3]
+1. Load patient JSON input.[file:1][file:4]
+2. Extract domain-specific free text.[file:1][file:2]
+3. Convert text into Bag of Words representation.[file:1]
+4. Apply fuzzy membership functions for severity scoring.[file:2]
+5. Generate flags and domain-level interpretation.[file:2]
+6. Build the final textual patient report.[file:3][file:4]
+7. Optionally visualise mental health membership functions through graph plotting.
 
-## Notes for Local Execution
+## Notes
 
-- Run commands from the root folder of the project so relative file paths resolve correctly.[3][2][7][6]
-- Ensure `keywords.json` is placed inside the `config/` directory.[2][6][5]
-- Ensure patient JSON files are stored in the correct data directory before execution.[1][3]
-- If using package-style commands such as `python -m app.patient_report`, the `app/` folder should include `__init__.py`.[3]
+- Run every command from the project root directory for module imports and relative paths to work correctly.[file:4][file:3][file:2]
+- The `app` folder should contain `__init__.py` if you are using `python -m app...` commands.[file:4]
+- The plotting scripts depend on the mental health analysis module and should be kept inside the `app` package.
 
 ## Summary
 
-Triinsight’s **NLP for QoL Patient’s narrative analysis** project provides a structured pipeline for analysing patient free-text narratives across clinically meaningful QoL domains. It combines Bag of Words text processing, domain keyword evidence, fuzzy severity scoring, and narrative report generation to transform unstructured patient text into interpretable analytical outputs.[1][2][7][3][4]
+Triinsight’s project provides a structured NLP pipeline for analysing QoL patient narratives using Bag of Words processing, fuzzy severity modelling, report generation, and mental health graph plotting. The system is organised around five QoL domains and is designed to turn patient narrative text into clear analytical and visual outputs that can support interpretation of quality-of-life impact.[file:1][file:2][file:3][file:4][file:9]
